@@ -1,4 +1,4 @@
-package Exam;
+package Barron_Homework;
 
 public interface MechanicalArm{
 	/** @return the index of the current location of the

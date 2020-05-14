@@ -1,4 +1,4 @@
-package Exam;
+package Barron_Homework;
 
 public interface Solution{
 	/** @return an integer value that ranges from 1 (very acidic)
