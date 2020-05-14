@@ -12,7 +12,7 @@ public class TokenPass {
 	 * @param playerCount the number of players
 	 */
 	public TokenPass(int playerCount) {
-		currentPlayer = playerCount;
+		currentPlayer = (int)Math.random()*playerCount;
 		board = new int[playerCount];
 		for (int i = 0; i < playerCount; i++) {
 			board[i] = (int) Math.random() * 10;
