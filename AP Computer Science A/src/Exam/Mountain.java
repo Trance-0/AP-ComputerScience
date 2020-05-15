@@ -26,11 +26,9 @@ public class Mountain {
     // Return the index of the first peak (local maximum) in the array, if it exists
     // I otherwise
     public static int getpeakindex(int[] array) {
-        if (isincreasing(array, 1)) {
-            for (int i = 1; i < array.length; i++) {
-                if (!isincreasing(array, i)) {
-                    return i;
-                }
+        for (int i = 1; i < array.length - 1; i++) {
+            if (array[i - 1] < array[i] && array[i] > array[i + 1]) {
+                return i;
             }
         }
         return -1;
@@ -41,8 +39,9 @@ public class Mountain {
     // Return true if array contains values ordered as a mountain;
     // false otherwise
     public static boolean ismountain(int[] array) {
-        for (int i = 1; i < array.length; i++) {
-            if (isincreasing(array, i)&&isdecreasing(array, i)) {
+        int peak = getpeakindex(array);
+        if (peak > 0) {
+            if (isincreasing(array, peak) && isdecreasing(array, peak)) {
                 return true;
             }
         }

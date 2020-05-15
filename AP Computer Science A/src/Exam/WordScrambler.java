@@ -21,6 +21,6 @@ public class WordScrambler {
             words[2 * i] = recombine(word1, word2);
             words[2 * i + 1] = recombine(word2, word1);
         }
-        return null;
+        return words;
     }
 }
