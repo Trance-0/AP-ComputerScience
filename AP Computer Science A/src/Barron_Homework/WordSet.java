@@ -48,7 +48,8 @@ public static int countA(WordSet s) {
 * "A", but is otherwise unchanged.
 */
 public static void removeA(WordSet s) {
-	for(int i=0; i<countA(s);i++) {
+	int numA=countA(s);
+	for(int i=0; i<numA;i++) {
 		s.remove(s.findkth(1));
 	}
 	}

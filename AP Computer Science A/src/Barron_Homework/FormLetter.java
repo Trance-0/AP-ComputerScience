@@ -27,16 +27,13 @@ public class FormLetter {
      * @return line with each occurrence of sub replaced by replacement
      */
     public String replaceAll(String line, String sub, String repl) {
-        String result = "";
         int subLength = sub.length();
         int starter = 0;
-        int ender = line.substring(starter, line.length()).indexOf(sub);
-        while (ender > 0) {
-            result = line.substring(starter, ender) + repl;
-            starter = ender + subLength;
+        while (line.indexOf(sub) > 0) {
+            starter = line.indexOf(sub);
+            line = line.substring(0, starter) + repl + line.substring(starter + subLength);
         }
-        result = result + line.substring(starter, line.length());
-        return result;
+        return line;
     }
 
     /**
@@ -58,12 +55,13 @@ public class FormLetter {
      */
     public void createPersonalizedLetters() {
         for (Customer i : customers) {
-            for (String j : lines) {
-                replaceAll(j, "@", i.getName());
-                replaceAll(j, "&", i.getCity());
-                replaceAll(j, "$", i.getState());
-                System.out.println(j);
+            List<String> newLine=makeCopy();
+            for (int j=0;j<newLine.size();j++) {
+                newLine.set(j,replaceAll(newLine.get(j), "@", i.getName()));
+                newLine.set(j,replaceAll(newLine.get(j), "&", i.getCity()));
+                newLine.set(j,replaceAll(newLine.get(j), "@", i.getState()));
             }
+            writeLetter(newLine);
         }
     }
     // Constructors and other methods are not shown.

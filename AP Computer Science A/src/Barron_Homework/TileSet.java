@@ -30,9 +30,9 @@ public class TileSet {
      * of tiles in the set.
      */
     public void shuffle() {
-    for (int i=0;i<tiles.size();i++){
-        Tile temp=tiles.remove(tiles.size()-i-1);
-        int index=(int)Math.random()*tiles.size();
+    for (int k=tiles.size();k>=0;k--){
+        Tile temp=tiles.remove(k);
+        int index=(int)(Math.random()*k+1);
         tiles.add(index, temp);
     }    
     unusedSize=tiles.size();

@@ -22,10 +22,8 @@ public class TilePlayer {
      * @param t the tile set for the word game
      */
     public void replaceTiles(TileSet t) {
-        int i = 0;
-        while (!t.allUsed() && NUM_LETTERS > i) {
+        while (!t.allUsed() && NUM_LETTERS>playerTiles.size()) {
             playerTiles.add(t.getNewTile());
-            i++;
         }
     }
 
