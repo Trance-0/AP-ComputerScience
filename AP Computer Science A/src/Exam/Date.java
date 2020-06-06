@@ -16,7 +16,7 @@ public class Date {
 		this.day = day;
 	}
 
-	public int getDay(int day) {
+	public int getDay() {
 		return day;
 	}
 
@@ -24,7 +24,7 @@ public class Date {
 		this.month = month;
 	}
 
-	public int getMonth(int month) {
+	public int getMonth() {
 		return month;
 	}
 
@@ -32,15 +32,15 @@ public class Date {
 		this.year = year;
 	}
 
-	public int getYear(int year) {
+	public int getYear() {
 		return year;
 	}
 
-	private boolean isLeafYear() {
+	public boolean isLeafYear() {
 		return this.year % 4 == 0 && this.year % 100 != 0 || this.year % 400 == 0;
 	}
 
-	public boolean isEuqals(Date d) {
+	public boolean isEquals(Date d) {
 		return this.year == d.year && this.month == d.month && this.day == d.day;
 	}
 
@@ -86,6 +86,5 @@ public class Date {
 
 	public String toString() {
 		return year + "-" + month + "-" + day;
-
 	}
 }

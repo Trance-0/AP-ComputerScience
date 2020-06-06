@@ -4,19 +4,21 @@ public class TestDate {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
- Date birthday=new Date(2004,3,30);
+//  Date birthday=new Date(1,1,1);
 
-Date today=new Date(2020,5,14);
- int count=0;
- while(!birthday.isEuqals(today))
- {
-	 birthday.changeDay();
+Date today=new Date(2020,6,30);
+//  int count=0;
+//  while(!birthday.isEquals(today))
+//  {
+// 	 birthday.changeDay();
 
-	 System.out.println(birthday);
+// 	 System.out.println(birthday);
 
-	 count++;
- }	
- System.out.println(count);
+// 	 count++;
+//  }	
+Calender a =new Calender(today);
+System.out.println(a.getWeek());
+//  System.out.println(count);
+a.printMonth();
 	}
-
 }
