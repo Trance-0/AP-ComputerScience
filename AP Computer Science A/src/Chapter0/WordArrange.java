@@ -5,21 +5,15 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class WordArrange {
-    private  int wordLimit;
-    private  List<String> thesis;
+    private int wordLimit=100;
     private  int[]historymap={0};
     private int pointer=0;
-
-    public WordArrange ( List<String> sentences,  int limit){
-        thesis=sentences;
-        wordLimit=limit;
-    }
 
     public int backToPreviousPointer(){
         return historymap[historymap.length-2];
     }
 
-    public int renewPointer( String waitingToCut){
+    public int renewPointer(String waitingToCut){
          String temp=waitingToCut.substring(pointer);
         pointer=temp.indexOf(" ")+pointer;
         if (pointer>wordLimit){
@@ -34,8 +28,8 @@ public class WordArrange {
     }
 
 
-    public void printParagraph( int paragraph){
-        String waitingToCut=thesis.get(paragraph);
+    public void printParagraph(String paragraph){
+        String waitingToCut=paragraph;
         while(waitingToCut.length()>100){
              int newPointer= renewPointer(waitingToCut);
             System.out.println(waitingToCut.substring(0,newPointer));
@@ -44,9 +38,9 @@ public class WordArrange {
         System.out.println(waitingToCut);
     }
 
-    public void printThesis(){
-        for (int i =0;i<thesis.size();i++){
-            printParagraph(i);
+    public void printThesis(List <String> thesis){
+        for (String paraghragh:thesis){
+            printParagraph(paraghragh);
         }
     }
 
